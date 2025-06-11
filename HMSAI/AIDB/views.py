@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from joblib import load
-model = load('./SavedModels/Diabiting.joblib')
-modelheart = load('./SavedModels/heartNewData.joblib')
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from io import BytesIO
@@ -21,6 +19,8 @@ def render_to_pdf(template_src, context_dict={}):
     return None
 
 def daibres(request):
+    model = load('./SavedModels/Diabiting.joblib')
+    
     Pregnancies = request.GET.get('Pregnancies', '')
     Glucose = request.GET.get('Glucose', '')
     BloodPressure = request.GET.get('BloodPressure', '')
@@ -56,6 +56,8 @@ def daibres(request):
     return render(request, 'daibres.html', context)
 
 def generate_pdf_dia(request):
+    model = load('./SavedModels/Diabiting.joblib')
+    
     Pregnancies = request.GET.get('Pregnancies', '')
     Glucose = request.GET.get('Glucose', '')
     BloodPressure = request.GET.get('BloodPressure', '')
