@@ -1,0 +1,24 @@
+<!-- bmi_calculator/templates/bmi_calculator/bmi_form.html -->
+{% extends 'base.html' %}
+{% block title %}BMI Calculator{% endblock %}
+{% block content %}
+<div class="container diagcontainer d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow" style="width: 100%; max-width: 500px;">
+        <div class="card-body">
+            <h1 class="font-weight-bold text-center mb-4" style="color: #1A4075;">BMI Calculator</h1>
+            <form method="post" action="bmi_calculator">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="weight" style="color: #1A4075;">Weight (kg):</label>
+                    <input type="text" id="weight" name="weight" class="form-control" style="border-color: #0CAC99;" required>
+                </div>
+                <div class="form-group">
+                    <label for="height" style="color: #1A4075;">Height (cm):</label>
+                    <input type="text" id="height" name="height" class="form-control" style="border-color: #0CAC99;" required>
+                </div>
+                <button type="submit" class="btn btn-block" style="background-color: #0CAC99; border-color: #0CAC99; color: white;">Calculate BMI</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

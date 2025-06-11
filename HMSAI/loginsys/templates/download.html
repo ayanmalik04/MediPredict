@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Report Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            /* Cream background color */
+        }
+
+        .report-card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .report-card {
+            width: 30%;
+            margin: 20px auto;
+            border: 2px solid #1A4075;
+            /* Dark blue border */
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            /* White background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-card h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #1A4075;
+            /* Dark blue color */
+            text-align: center;
+        }
+
+        .report-card-item {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            /* Light grey border bottom */
+        }
+
+        .report-card-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+            /* Dark text color */
+        }
+
+        .report-card a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0CAC99;
+            /* Teal button background color */
+            color: #fff;
+            /* White text color */
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .report-card a:hover {
+            background-color: #1A4075;
+            /* Darker teal on hover */
+        }
+
+        /* Media query for responsiveness */
+        @media screen and (max-width: 768px) {
+            .report-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="report-card-container ">
+        <div class="report-card">
+            <h2>Appointment Form</h2>
+
+            {% for user in eee %}
+            <div class="report-card-item">
+                <p><span class="report-card-label">Name:</span> {{ user.name }}</p>
+                <p><span class="report-card-label">Age:</span> {{ user.age }}</p>
+                <p><span class="report-card-label">Doctor:</span> {{ user.doctor }}</p>
+                <p><span class="report-card-label">Time Slot:</span> {{ user.time_slot }}</p>
+                <p><span class="report-card-label">Location:</span> {{ user.location }}</p>
+                <p><span class="report-card-label">Telephone Number:</span> {{ user.telephone_number }}</p>
+            </div>
+            <a href="{% url 'pdf_down' id=user.id %}">Download as PDF</a>
+            {% endfor %}
+            <a href="/">Home</a>
+        </div>
+    </div>
+</body>
+
+</html>
