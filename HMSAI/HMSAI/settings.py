@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('medidb'),
         'USER': os.environ.get('root'),
-        'PASSWORD': os.environ.get('Ayan123@45'),
+        'PASSWORD': os.environ.get(''),
         'HOST': os.environ.get('DB_HOST'),  # ❗️Don't use '127.0.0.1' here
         'PORT': os.environ.get('DB_PORT', '3306'),
     }
