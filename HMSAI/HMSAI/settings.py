@@ -80,13 +80,13 @@ WSGI_APPLICATION = 'HMSAI.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "medidb",
-        "USER": "root",
-        "PASSWORD": "Ayan123@45",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-    },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),  # ❗️Don't use '127.0.0.1' here
+        'PORT': os.environ.get('DB_PORT', '3306'),
+    }
 }
 
 
