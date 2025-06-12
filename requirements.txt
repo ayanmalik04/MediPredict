@@ -90,7 +90,7 @@ nbformat==5.9.2
 nest-asyncio==1.6.0
 numpy==1.26.4
 pandas==2.3.0
-tensorflow==2.17.0
+tensorflow-cpu==2.15.0
 thinc==8.1.7
 spacy==3.4.4
 opt-einsum==3.3.0
