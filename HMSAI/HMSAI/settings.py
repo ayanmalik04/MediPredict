@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-f2eze5j6*elfx%nzg%fru^+1yxlw1ikhvyyc=ixnz4wvs!e$ap
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['medipredict-y9th.onrender.com]
 
 
 # Application definition
