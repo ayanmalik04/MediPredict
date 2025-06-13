@@ -1,0 +1,36 @@
+<!-- covid.html -->
+
+{% extends 'base.html' %}
+{% block title %}COVID-19 X-ray Image Prediction{% endblock %}
+{% block content %}
+<div class="container diagcontainer d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow" style="width: 100%; max-width: 400px; border-radius: 15px;">
+        <div class="card-body text-center">
+            <h1 class="font-weight-bold mb-4" style="color: #1A4075;">Upload an X-ray Image</h1>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'resultcov' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="image" class="custom-file-input" id="customFile" accept="image/*" required>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: #0CAC99; border-color: #0CAC99;">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var customFileInput = document.querySelector('.custom-file-input');
+        customFileInput.addEventListener('change', function () {
+            var fileName = customFileInput.files[0].name;
+            var nextSibling = customFileInput.nextElementSibling;
+            nextSibling.classList.add("selected");
+            nextSibling.innerText = fileName;
+        });
+    });
+</script>

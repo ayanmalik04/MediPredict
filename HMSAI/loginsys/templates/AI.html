@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Testing Page{% endblock %}
+{% block content %}
+{% load static %}
+<style>
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .container-tp {
+        margin-top: 30px;
+    }
+
+    .box {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s;
+        overflow: hidden; /* Ensure images don't overflow */
+        margin-bottom: 20px; /* Add margin between boxes */
+    }
+
+    .box img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .box a {
+        text-decoration: none;
+        color: #141618;
+        font-size: 16px;
+    }
+
+    .box:hover {
+        transform: translateY(-10px);
+    }
+
+    .thead{
+        text-align: center;
+    }
+</style>
+
+<div class="container container-tp">
+    <div class="thead"><h1 class="font-weight-bold">Test your report</h1></div>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="box">
+                <a href="daibetes">
+                    <img src="{% static 'Images/DiabetesImage.jpg' %}" class="img-fluid" alt="Diabetes">
+                    <p class="mt-3">Diabetes</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="box">
+                <a href="covid">
+                    <img src="{% static 'Images/covidImages.jpg' %}" class="img-fluid" alt="Covid">
+                    <p class="mt-3">COVID-19</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="box">
+                <a href="bmi_calculator">
+                    <img src="{% static 'Images/bmiImage.jpg' %}" class="img-fluid" alt="BMI Calculator">
+                    <p class="mt-3">BMI Calculator</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

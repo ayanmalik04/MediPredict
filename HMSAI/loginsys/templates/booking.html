@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'base.html' %}
+
+    {% block title %}Appointment{% endblock %}
+    
+    {% block content %}
+    <style>
+        body {
+            background-color: #f9f9f9;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .appointment-form-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px;
+            align-items: center;
+        }
+        .appointment-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px; /* Adjusted for wider form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .appointment-form h1 {
+            color: #1A4075;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #0CAC99;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #1A4075;
+            color: #fff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .homelnk{
+            text-align: center;
+            color: #0CAC99;
+            padding: 10px;
+        }
+        .homelnk a{
+            color: #0CAC99;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="appointment-form-container">
+        <div class="appointment-form">
+            <h1 class="font-weight-bold">Book Appointment</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="age">Age:</label>
+                        {{ form.age }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="doctor">Doctor:</label>
+                        {{ form.doctor }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="time_slot">Time Slot:</label>
+                        {{ form.time_slot }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="location">Location:</label>
+                        {{ form.location }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="{{ form.telephone_number.id_for_label }}">Telephone Number:</label>
+                        {{ form.telephone_number }}
+                        {% if form.telephone_number.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.telephone_number.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-custom">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>
