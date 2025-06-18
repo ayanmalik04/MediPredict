@@ -16,7 +16,7 @@ Automat==24.8.1
 Babel==2.14.0
 beautifulsoup4==4.12.3
 bleach==6.1.0
-blis==0.7.8
+blis==0.7.10
 Brotli==1.1.0
 catalogue==2.0.10
 certifi==2024.2.2
